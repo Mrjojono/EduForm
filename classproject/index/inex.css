@@ -1,0 +1,248 @@
+.body {
+    /*
+  
+    
+    background: url("../assets/Untitled.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    color: #d3d4d8;  
+    background: linear-gradient(to right, #5e5d5d, #bdbdbd);
+}
+
+.btnl {
+    width: 290px;
+    padding: 10px;
+    background-color: #375a7f;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: whitesmoke;
+    border: none;
+    box-shadow: 0 2px 5px #375a7f;
+}
+
+.btnl:hover {
+    background-color: #4a8cc7;
+}
+/*
+Navbar
+ */
+ nav {
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff; 
+}
+
+.nav-link:hover {
+    color: #fff8f8; 
+}
+
+
+/*
+Navbar
+ */
+.professor {
+    margin-left: 10px;
+    height: auto;
+}
+
+.btn-group {
+    justify-content: space-between;
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.text {
+    margin: 10px;
+    padding: 20px;
+    width: 100%;
+    border: 1px solid #3b3e42;
+    height: 40px;
+    color: #d3d4d8;
+    font-size: 19px;
+    background-color: #2c2f34;
+}
+
+.text::placeholder {
+    color: #666b73;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.add_description {
+    width: 290px;
+    padding: 13px;
+    background-color: #375a7f;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: whitesmoke;
+    border: none;
+    box-shadow: 0 2px 5px #375a7f;
+}
+
+.add_description:hover {
+    background-color: #4a8cc7;
+}
+
+.student__add {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    background-color: #2c2f34;
+    height: 25vh;
+}
+
+.online {
+    display: flex;
+    flex-direction: row;
+}
+
+.online-perso {
+    flex: 1;
+    height: 700px;
+    border: 1px solid #e8ecf1;
+    background-color: #3b3b3b;
+    border-bottom: 1px solid #4a4e55;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 700px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.message-display {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #3b3b3b;
+    border-bottom: 1px solid #4a4e55;
+}
+
+.input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #1c1f24;
+}
+/*
+input group
+ */
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #4a4e55;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: #eceff4;
+    color: #2c2f34;
+}
+input[type="date"]{
+    background-color: #eceff4;
+    color: #2c2f34;
+}
+input[type="number"]{
+    background-color: #eceff4;
+    color: #2c2f34;
+}
+input[type="tel"]{
+    background-color: #eceff4;
+    color: #2c2f34;
+}
+input[type="email"]{
+    background-color: #eceff4;
+    color: #2c2f34;
+}
+input[type="file"]{
+    background-color: #eceff4;
+    color: #2c2f34;
+}
+
+
+
+.btn-envoyer {
+    padding: 10px 20px;
+    border: none;
+    background-color: #337ab7;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-envoyer:hover {
+    background-color: #285e8e;
+}
+
+.input-group-text {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.input-group-text input {
+    border-radius: 12px;
+}
+
+.text.date {
+    padding: 30px;
+
+}
+
+.text.description {
+    padding: 30px;
+}
+._add{
+    background-color: white;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    height: auto;
+}
+a:hover{
+    color: white;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column; /* Stack elements vertically on small screens */
+    }
+
+    .professor, .student__add {
+        width: 100%; /* Full width on smaller screens */
+        margin-left: 0; /* Remove the left margin */
+        padding-right: 0; /* Remove the right padding */
+    }
+
+    .btn-group {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Reduce gap between buttons */
+    }
+}
+
+/* Media query for larger screens */
+@media (min-width: 1024px) {
+    .professor {
+        width: 40vw; /* Adjust width for larger screens */
+    }
+
+    .student__add {
+        width: 20vw; /* Adjust width for larger screens */
+    }
+}

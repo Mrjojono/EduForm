@@ -1,0 +1,41 @@
+body{
+    background-image: url("../assets/loginback.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: wheat;
+}
+.btn{
+    color: wheat;
+}
+.navbar{
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid wheat;
+    position: sticky;
+}
+.container {
+    border: 1px solid beige;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    margin-top: 15%;
+    width: 400px;
+}
+.container input{
+    margin-top: 20px;
+    width: 300px;
+}
+.container button{
+    width: 200px;
+}
+footer{
+    backdrop-filter: blur(3px);
+}
+a:hover{
+    color: white;
+}
+.navl{
+    position: static;
+}
+
+   

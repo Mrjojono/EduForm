@@ -1,0 +1,11 @@
+.Blog{
+    background-color: white;
+    width: 70%;
+    height: auto;
+
+}
+.post{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
