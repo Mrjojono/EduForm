@@ -9,11 +9,11 @@
 </head>
 <body class="bg-black">
 <div class="container-fluid  ">
-    <nav class="navbar fixed-top ">
+    <nav class="navbar fixed-top  ">
         <div class="container-fluid ">
-            <a class="navbar-brand" style="color: antiquewhite; font-weight: bold; font-size: 40px">EduForm</a>
+            <a class="navbar-brand" style="color: black; font-weight: bold; font-size: 40px">EduForm</a>
             <form class="d-flex">
-                <button class="btn" type="submit">Social</button>
+                <button class="btn" type="submit" style="color: black;">Social</button>
                 <button class="btn btn-outline-success" type="submit"><a href="Login.php" style="text-decoration: none; color:green; " >Sign</a></button>
             </form>
         </div>
@@ -22,6 +22,7 @@
 
     <?php
     session_start();
+
     if (isset($_POST["Login"])) {
         require_once "database.php";
 
@@ -66,27 +67,61 @@
         }
     }
     ?>
+<section class="welcome-text">
+
+</section>
 
         <form class="form-group form-horizontal" action="Login.php" method="post">
-            <h1 class="h1 mt-5 font-weight-bold">Login</h1>
+
+            <h1 class="h1 mt-5 font-weight-bold Login">Login</h1>
             <label class="pass">
             <input type="email" name="email" class="form-control" placeholder="Email" required>
             </label>
             <label class="pass">
             <input type="password" name="password" class="form-control" placeholder="Password" required>
             </label>
-            <label class="pass">
-            <input type="checkbox" value="remember-me"> Remember me
-            </label> 
+
     
             <button class="btn btn-primary btn-block mb-2 mt-3" type="submit" name="Login">Login</button>
 
             <p class="p mt-2">No account? <a href="Register.php">Create one!</a></p>
+            <p class="p mt-2">Forget password? <a href="Register.php">Change it!</a></p>
         
         </form>
     </div>
-    <footer class="text-center text-white mt-5 py-3 bg-transparent">
-        <div class="container">
+
+    <footer class="text-center text-white mt-5 py-3 ">
+        <div class="container-fluid">
+            <p class="mt-2 ">
+            © [Nom de ton site], [année].
+            Une solution complète pour la gestion des élèves et des professeurs, simplifiant l'administration scolaire et facilitant la communication entre l'administration, les enseignants et les étudiants.
+
+            Besoin d'aide ? <br>
+
+            Contact : [email de contact]
+            Téléphone : [numéro de téléphone]
+
+<!--
+ © EduForm, 2024]. Tous droits réservés.
+            Bienvenue sur EduForm, votre solution complète pour la gestion des élèves et des professeurs. Nous facilitons l'administration scolaire en offrant une plateforme moderne, intuitive et sécurisée qui centralise toutes les informations importantes : suivi des élèves, gestion des professeurs, rapports académiques, et bien plus encore. Simplifiez la communication entre l'administration, les enseignants et les étudiants grâce à notre interface facile à utiliser et accessible en tout temps.
+
+            Que vous soyez un enseignant souhaitant gérer efficacement les informations de vos classes, ou un administrateur à la recherche d'une solution pour automatiser vos tâches quotidiennes, [Nom de ton site] est conçu pour vous offrir un service fiable et performant.
+
+             Notre mission :
+            Offrir des outils numériques innovants qui améliorent la qualité de l'enseignement et simplifient la gestion des établissements scolaires.<br>
+
+    Contactez-nous :
+
+    Email : EduForm@gmail.com
+    Téléphone : +228 79971453
+    Adresse : Lomé-Togo
+    Suivez-nous sur les réseaux sociaux :        
+
+-->
+        
+
+            </p>
+
             <p class="mb-0">&copy; 2024 Mrjojono. All rights reserved.</p>
         </div>
     </footer>

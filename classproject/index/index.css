@@ -1,5 +1,5 @@
 .liste {
-    background-color: #424242; /* Couleur de fond plus sombre */
+    background-color: #424242; 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
