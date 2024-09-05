@@ -9,11 +9,12 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="inex.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
+    <link href="../php/tuto.css" rel="stylesheet"></link>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
-<body class="container-fluid body" >
+<body class="container-fluid body">
 
 <!-- Navbar -->
 <div class="container-fluid">
@@ -27,7 +28,8 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active " style="color: white; font-size:12px;"   aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active " style="color: white; font-size:12px;" aria-current="page"
+                           href="Home.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="color: white; font-size:12px;" href="info_etudiant.php">Form</a>
@@ -35,9 +37,12 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" style="color: white; font-size:12px;" href="index2.html">Blog-campus</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: white; font-size:12px;" href="index.php">Chat-room</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        style="color: white; font-size:12px;"
+                           style="color: white; font-size:12px;"
                            aria-expanded="false">
                             Link
                         </a>
@@ -97,46 +102,46 @@ session_start();
 
         <!-- Student Section -->
         <div class=" container-fluid  ">
-            <div class="_add" >
-                                                <?php
+            <div class="_add">
+                <?php
 
-                                    require_once '../php/database.php';
+                require_once '../php/database.php';
 
-                                    $users_email = $_SESSION["email"];
+                $users_email = $_SESSION["email"];
 
-                                    // Fetch the user ID based on the email
-                                    $id2_sql = $conn->prepare("SELECT id FROM users WHERE email = ?");
-                                    $id2_sql->bind_param("s", $users_email);
-                                    $id2_sql->execute();
-                                    $result_3 = $id2_sql->get_result();
-                                    $user = $result_3->fetch_assoc();
-                                    $user_id_2 = $user["id"];
+                // Fetch the user ID based on the email
+                $id2_sql = $conn->prepare("SELECT id FROM users WHERE email = ?");
+                $id2_sql->bind_param("s", $users_email);
+                $id2_sql->execute();
+                $result_3 = $id2_sql->get_result();
+                $user = $result_3->fetch_assoc();
+                $user_id_2 = $user["id"];
 
-                                    // Fetch all student data for the connected user
-                                    $stmt = $conn->prepare("SELECT * FROM users_data WHERE users_id = ?;");
-                                    $stmt->bind_param("i", $user_id_2);
-                                    $stmt->execute();
-                                    $result = $stmt->get_result();
+                // Fetch all student data for the connected user
+                $stmt = $conn->prepare("SELECT * FROM users_data WHERE users_id = ?;");
+                $stmt->bind_param("i", $user_id_2);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-                                    // Fetch the number of students for the connected user
-                                    /*
-                                    
-                                     $stmt_2 = $conn->prepare("SELECT count(*) as student_numb FROM users_data WHERE users_id = ?;");
-                                    $stmt_2->bind_param("i", $user_id_2);
-                                    $stmt_2->execute();
-                                    $result_2 = $stmt_2->get_result();
-                                    $user_data_2 = $result_2->fetch_assoc();
-                                    $student_numb = $user_data_2["student_numb"];
+                // Fetch the number of students for the connected user
+                /*
 
-                                    */
-                                   
-                                    // Loop through each student and display their data
-                                    while ($user_data = $result->fetch_assoc()) {
-                                        $prenom = $user_data["prénoms"];
-                                        $name = $user_data["names"];
-                                        $email = $user_data["email"];
+                 $stmt_2 = $conn->prepare("SELECT count(*) as student_numb FROM users_data WHERE users_id = ?;");
+                $stmt_2->bind_param("i", $user_id_2);
+                $stmt_2->execute();
+                $result_2 = $stmt_2->get_result();
+                $user_data_2 = $result_2->fetch_assoc();
+                $student_numb = $user_data_2["student_numb"];
 
-                                        echo "
+                */
+
+                // Loop through each student and display their data
+                while ($user_data = $result->fetch_assoc()) {
+                    $prenom = $user_data["prénoms"];
+                    $name = $user_data["names"];
+                    $email = $user_data["email"];
+
+                    echo "
                                     
                                             <div class='container-fluid liste bg-dark '>
                                                 <div class='info'>
@@ -157,18 +162,56 @@ session_start();
                                             </div>
                                        ";
 
-                                    }
+                }
 
-                                    $stmt->close();
-                                    $id2_sql->close();
-                                    $conn->close();
+                $stmt->close();
+                $id2_sql->close();
+                $conn->close();
 
-                                    ?>
+                ?>
 
             </div>
         </div>
 
     </div>
+    <footer class="text-center text-white mt-5 py-3 ">
+        <div class="container-fluid">
+            <p class="mt-2 ">
+                © [Nom de ton site], [année].
+                Une solution complète pour la gestion des élèves et des professeurs, simplifiant l'administration
+                scolaire et facilitant la communication entre l'administration, les enseignants et les étudiants.
+
+                Besoin d'aide ? <br>
+
+                Contact : [email de contact]
+                Téléphone : [numéro de téléphone]
+
+                <!--
+                 © EduForm, 2024]. Tous droits réservés.
+                            Bienvenue sur EduForm, votre solution complète pour la gestion des élèves et des professeurs. Nous facilitons l'administration scolaire en offrant une plateforme moderne, intuitive et sécurisée qui centralise toutes les informations importantes : suivi des élèves, gestion des professeurs, rapports académiques, et bien plus encore. Simplifiez la communication entre l'administration, les enseignants et les étudiants grâce à notre interface facile à utiliser et accessible en tout temps.
+
+                            Que vous soyez un enseignant souhaitant gérer efficacement les informations de vos classes, ou un administrateur à la recherche d'une solution pour automatiser vos tâches quotidiennes, [Nom de ton site] est conçu pour vous offrir un service fiable et performant.
+
+                             Notre mission :
+                            Offrir des outils numériques innovants qui améliorent la qualité de l'enseignement et simplifient la gestion des établissements scolaires.<br>
+
+                    Contactez-nous :
+
+                    Email : EduForm@gmail.com
+                    Téléphone : +228 79971453
+                    Adresse : Lomé-Togo
+                    Suivez-nous sur les réseaux sociaux :
+
+                -->
+
+
+            </p>
+
+            <p class="mb-0">&copy; 2024 Mrjojono. All rights reserved.</p>
+        </div>
+    </footer>
+
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>

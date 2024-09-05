@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="inex.css" rel="stylesheet">
+    <link href="../php/tuto.css" rel="stylesheet">
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -12,9 +13,9 @@
 
 <!-- Navbar -->
 <div class="container-fluid">
-    <nav class="navbar fixed-top navbar-expand-lg">
+    <nav class="navbar fixed-top navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">EduForm</a>
+            <a class="navbar-brand" style="color: black; font-size:25px;" href="index.html">EduForm</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,27 +23,42 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active " style=" font-size:12px;" aria-current="page"
+                           href="Home.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="info_etudiant.html">Form</a>
+                        <a class="nav-link" style=" font-size:12px;" href="info_etudiant.php">Form</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index2.html">Blog-campus</a>
+                        <a class="nav-link" style=" font-size:12px;" href="index2.html">Blog-campus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style=" font-size:12px;" href="index.php">Chat-room</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           style=" font-size:12px;"
                            aria-expanded="false">
                             Link
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Profil</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="../php/Login.php">Logout</a></li>
                         </ul>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Link</a>
+                    </li>
+                    -->
                 </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
@@ -58,9 +74,10 @@
 
                 <div class="input-group-text bg-transparent mb-5">
                     <?php
-                    session_start(); 
+                    session_start();
 
                     if (isset($_POST["submit"])) {
+                        //variables pour stocker les données sur les étuidants 
                         $name = $_POST["name"];
                         $prenom = $_POST["prenom"];
                         $age = $_POST["age"];
@@ -72,6 +89,7 @@
                         $leve_l = $_POST["Niveau"];
                         $description = $_POST["description"];
                         $errors = [];
+
                         $photoPath = "";
 
                         // Check if user is logged in
@@ -92,12 +110,12 @@
                             $photoName = basename($photo["name"]);
                             $uploadDir = "uploads/";
                             $photoPath = $uploadDir . $photoName;
-                        
+
                             // create directory if the directory doesn't exists
                             if (!is_dir($uploadDir)) {
-                                mkdir($uploadDir, 0755, true); 
+                                mkdir($uploadDir, 0755, true);
                             }
-                        
+
                             // Move the uploaded file
                             if (move_uploaded_file($photo["tmp_name"], $photoPath)) {
                                 echo "File successfully uploaded.";
@@ -107,7 +125,7 @@
                         } else {
                             echo "No file uploaded or upload error occurred.";
                         }
-                        
+
 
                         // Insert into database if no errors
 
@@ -115,23 +133,22 @@
                             require_once "../php/database.php";
 
                             //fill out the users id 
-                            $id_sql = $conn->prepare("SELECT id FROM users WHERE email = ?");
-                            $id_sql->bind_param("s", $user_email);
-                            $id_sql->execute();
-                            $result_2 = $id_sql->get_result();
+                            $sql_query = $conn->prepare("SELECT id FROM users WHERE email = ?");
+                            $sql_query->bind_param("s", $user_email);
+                            $sql_queryl->execute();
+                            $result_2 = $sql_query->get_result();
                             $user = $result_2->fetch_assoc();
                             $user_id = $user["id"];
 
-                
-                            
-                
-                            //insert the data into the user_databse 
-                            $stmt = $conn->prepare("INSERT INTO users_data (users_id, names, prénoms, age, date_naissance, identification_number, leve_l, Adresse, Tel, email, Photo, Descriptions) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                            $stmt->bind_param("issisissssss", $user_id, $name, $prenom, $age, $date_N, $identifiant, $leve_l, $Adresse, $tel, $email, $photoPath, $description);
-                            $stmt->execute();
 
-                            $stmt->close();
-                            $id_sql->close();
+                            //insert the data into the user_databse 
+                            $sql_query_2 = $conn->prepare("INSERT INTO users_data (users_id, names, prénoms, age, date_naissance, identification_number, leve_l, Adresse, Tel, email, Photo, Descriptions) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            $sql_query_2->bind_param("issisissssss", $user_id, $name, $prenom, $age, $date_N, $identifiant, $leve_l, $Adresse, $tel, $email, $photoPath, $description);
+                            $sql_query_2->execute();
+
+                            $sql_query_2->close();
+                            $sql_query->close();
+
                             $conn->close();
                         }
 
@@ -146,17 +163,19 @@
                     }
                     ?>
 
-                    <input id="name" name="name" class="text form-control" type="text" placeholder="Name" >
-                    <input id="prenom" name="prenom" class="text form-control" type="text" placeholder="Prénoms" >
-                    <input id="age" name="age" class="text age" type="number" placeholder="Age" required >
+                    <input id="name" name="name" class="text form-control" type="text" placeholder="Name">
+                    <input id="prenom" name="prenom" class="text form-control" type="text" placeholder="Prénoms">
+                    <input id="age" name="age" class="text age" type="number" placeholder="Age" required>
                     <input id="date_N" name="date_N" class="text date" type="date" required>
-                    <input id="identifiant" name="identifiant" class="text identifiant" type="number" placeholder="Numéro d'identification">
+                    <input id="identifiant" name="identifiant" class="text identifiant" type="number"
+                           placeholder="Numéro d'identification">
                     <input id="Niveau" name="Niveau" class="text Niveau" type="text" placeholder="Niveau">
                     <input id="Adresse" name="Adresse" class="text" type="text" placeholder="Adresse">
                     <input id="tel" name="tel" class="text" type="tel" placeholder="Numéro de téléphone">
                     <input id="email" name="email" class="text" type="email" placeholder="Entrer votre email">
                     <input id="photo" name="photo" class="text date" type="file">
-                    <input class="text description form-control mt-3" type="text" id="description" name="description" placeholder="Notes/Commentaires">
+                    <input class="text description form-control mt-3" type="text" id="description" name="description"
+                           placeholder="Notes/Commentaires">
 
                 </div>
 
@@ -168,6 +187,26 @@
             </form>
         </div>
     </div>
+
+
+    <footer class="text-center text-white mt-5 py-3 ">
+        <div class="container-fluid">
+            <p class="mt-2 ">
+                © [Nom de ton site], [année].
+                Une solution complète pour la gestion des élèves et des professeurs, simplifiant l'administration
+                scolaire et facilitant la communication entre l'administration, les enseignants et les étudiants.
+
+                Besoin d'aide ? <br>
+
+                Contact : [email de contact]
+                Téléphone : [numéro de téléphone]
+
+
+            </p>
+
+            <p class="mb-0">&copy; 2024 Mrjojono. All rights reserved.</p>
+        </div>
+    </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

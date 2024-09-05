@@ -14,13 +14,15 @@
             <a class="navbar-brand" style="color: antiquewhite; font-weight: bold; font-size: 40px">EduForm</a>
             <form class="d-flex">
                 <button class="btn" type="submit">Social</button>
-                <button class="btn btn-outline-success"  type="submit"><a href="Login.php" style="text-decoration: none; color:green; " >Sign</a></button>
+                <button class="btn btn-outline-success" type="submit"><a href="Login.php"
+                                                                         style="text-decoration: none; color:green; ">Sign</a>
+                </button>
             </form>
         </div>
     </nav>
     <div class="container">
         <?php
-require_once 'database.php';
+        require_once 'database.php';
         if (isset($_POST["submit"])) {
             $email = $_POST["email"];
             $name = $_POST["name"];
