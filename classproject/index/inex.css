@@ -1,10 +1,9 @@
 .body {
-    /*
+    
     background: url("../assets/Untitled.jpg");
     background-repeat: no-repeat;
-    background-size: cover;*/
-    color: #d3d4d8;  
-    background: linear-gradient(to right, #474646, #8b8a8a);
+    background-size: cover;
+   
 }
 
 .btnl {
