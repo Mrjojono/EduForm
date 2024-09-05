@@ -1,5 +1,4 @@
 .liste {
-    background-color: #424242; 
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,9 +8,10 @@
     width: 100%;
     border-bottom: 1px solid #d1d1d1; 
     border-top: 1px solid #d1d1d1;
+   
 }
 
-ul, li {
+.liste, li {
     text-decoration: none;
     list-style: none;
     font-family: 'Arial', sans-serif;
@@ -44,10 +44,5 @@ ul, li {
     gap: 20px;
 }
 
-.card{
-    background-color: transparent;
-    border-radius: 30px;
-    margin: auto;
-    margin-top: 10px;
-   
-}
+
+

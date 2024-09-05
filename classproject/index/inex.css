@@ -1,10 +1,10 @@
-.body {
-    
-    background: url("../assets/Untitled.jpg");
+body{
+    background: url("../assets/bg(1).jpg");
     background-repeat: no-repeat;
     background-size: cover;
-   
 }
+
+
 
 .btnl {
     width: 290px;
@@ -25,10 +25,10 @@
 Navbar
  */
  nav {
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(24, 22, 22, 0.021); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+    border-bottom: 2px solid rgba(8, 5, 5, 0.952); 
 
 }
 
@@ -74,22 +74,6 @@ Navbar
     color: #666b73;
     font-size: 20px;
     padding: 20px;
-}
-
-.add_description {
-    width: 290px;
-    padding: 13px;
-    background-color: #375a7f;
-    font-size: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    color: whitesmoke;
-    border: none;
-    box-shadow: 0 2px 5px #375a7f;
-}
-
-.add_description:hover {
-    background-color: #4a8cc7;
 }
 
 .student__add {
@@ -206,9 +190,8 @@ input[type="file"]{
     padding: 30px;
 }
 ._add{
-    background-color: white;
-    margin-top: 40px;
-    margin-bottom: 10px;
+    margin-top: 30px;
+   border-bottom: 1px solid white;
     height: auto;
 }
 a:hover{

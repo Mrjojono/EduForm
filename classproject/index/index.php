@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +13,13 @@
     <title>Document</title>
 </head>
 
-<body class="container-fluid body">
+<body class="container-fluid body" >
 
 <!-- Navbar -->
 <div class="container-fluid">
     <nav class="navbar fixed-top navbar-expand-lg ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">EduForm</a>
+            <a class="navbar-brand" style="color: black; font-size:25px;" href="index.html">EduForm</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,16 +27,17 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link active " style="color: white; font-size:12px;"   aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="info_etudiant.php">Form</a>
+                        <a class="nav-link" style="color: white; font-size:12px;" href="info_etudiant.php">Form</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index2.html">Blog-campus</a>
+                        <a class="nav-link" style="color: white; font-size:12px;" href="index2.html">Blog-campus</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        style="color: white; font-size:12px;"
                            aria-expanded="false">
                             Link
                         </a>
@@ -92,9 +97,9 @@
 
         <!-- Student Section -->
         <div class=" container-fluid  ">
-            <div class="_add" id="student___add">
+            <div class="_add" >
                                                 <?php
-                                    session_start();
+
                                     require_once '../php/database.php';
 
                                     $users_email = $_SESSION["email"];
@@ -132,8 +137,8 @@
                                         $email = $user_data["email"];
 
                                         echo "
-                                     <div class='card '>
-                                            <ul id='student__list' class='container-fluid liste'>
+                                    
+                                            <div class='container-fluid liste bg-dark '>
                                                 <div class='info'>
                                                     <li>Nom: $name</li>
                                                     <li>Prénom : $prenom</li>
@@ -149,8 +154,8 @@
                                                         <ion-icon name='trash-outline'></ion-icon>
                                                     </button>
                                                 </div>
-                                            </ul>
-                                        </div>";
+                                            </div>
+                                       ";
 
                                     }
 
